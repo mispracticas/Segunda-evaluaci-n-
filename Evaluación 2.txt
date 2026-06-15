@@ -1,0 +1,232 @@
+<meta name='viewport' content='width=device-width, initial-scale=1'/><!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Crucigrama Interactivo</title>
+
+<style>
+
+body{
+font-family:Arial;
+background:#f4eff9;
+margin:0;
+padding:0;
+}
+
+header{
+background:#7b1fa2;
+color:white;
+padding:20px;
+text-align:center;
+}
+
+.contenedor{
+max-width:900px;
+margin:auto;
+padding:20px;
+}
+
+.caja{
+background:white;
+padding:15px;
+margin-bottom:20px;
+border-radius:15px;
+box-shadow:0px 2px 8px rgba(0,0,0,.2);
+}
+
+h2{
+color:#7b1fa2;
+}
+
+input{
+width:100%;
+padding:10px;
+font-size:18px;
+margin-top:5px;
+margin-bottom:15px;
+text-transform:uppercase;
+border-radius:8px;
+border:2px solid #7b1fa2;
+}
+
+button{
+width:100%;
+padding:15px;
+font-size:20px;
+background:#7b1fa2;
+color:white;
+border:none;
+border-radius:10px;
+cursor:pointer;
+}
+
+button:hover{
+background:#5e1680;
+}
+
+#resultado{
+margin-top:20px;
+font-size:24px;
+text-align:center;
+font-weight:bold;
+color:#7b1fa2;
+}
+
+footer{
+margin-top:20px;
+padding:15px;
+text-align:center;
+background:#7b1fa2;
+color:white;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<h1>🧠 CRUCIGRAMA INTERACTIVO</h1>
+
+<h3>Formación Socioemocional VI</h3>
+
+</header>
+
+<div class="contenedor">
+
+<div class="caja">
+
+<h2>📖 Indicaciones</h2>
+
+<p>
+Lee cada definición y escribe la respuesta correcta.
+Al finalizar presiona el botón VERIFICAR.
+No escribas espacios ni acentos.
+</p>
+
+</div>
+
+<div class="caja">
+
+<h2>➡ Horizontales</h2>
+
+<p><b>1.</b> Capacidad de expresar ideas y escuchar con claridad.</p>
+<input id="r1">
+
+<p><b>2.</b> Conjunto de rasgos, valores y experiencias que definen a una persona.</p>
+<input id="r2">
+
+<p><b>3.</b> Bienestar físico, emocional y social relacionado con la sexualidad.</p>
+<input id="r3">
+
+<p><b>4.</b> Personas o grupos que brindan apoyo y seguridad.</p>
+<input id="r4">
+
+<p><b>5.</b> Saber dialogar y llegar a acuerdos justos.</p>
+<input id="r5">
+
+</div>
+
+<div class="caja">
+
+<h2>⬇ Verticales</h2>
+
+<p><b>6.</b> Presión para obligar a alguien a hacer algo sin consentimiento.</p>
+<input id="r6">
+
+<p><b>7.</b> Uso injusto de autoridad para controlar o dañar a otros.</p>
+<input id="r7">
+
+<p><b>8.</b> Libertad de decidir sobre la sexualidad con respeto y seguridad.</p>
+<input id="r8">
+
+<p><b>9.</b> Manifestaciones creativas que comunican ideas o emociones.</p>
+<input id="r9">
+
+<p><b>10.</b> Reconocer problemas y actuar por el bienestar de la comunidad.</p>
+<input id="r10">
+
+</div>
+
+<button onclick="verificar()">
+
+✔ VERIFICAR RESPUESTAS
+
+</button>
+
+<div id="resultado"></div>
+
+</div>
+
+<footer>
+
+Actividad basada en los temas de Formación Socioemocional VI
+
+</footer>
+
+<script>
+
+function limpiar(texto){
+
+return texto.toUpperCase()
+.replace(/ /g,"")
+.normalize("NFD")
+.replace(/[\u0300-\u036f]/g,"");
+
+}
+
+function verificar(){
+
+let puntos=0;
+
+if(limpiar(document.getElementById("r1").value)=="COMUNICACION"){puntos++;}
+
+if(limpiar(document.getElementById("r2").value)=="IDENTIDAD"){puntos++;}
+
+if(limpiar(document.getElementById("r3").value)=="SALUDSEXUAL"){puntos++;}
+
+if(limpiar(document.getElementById("r4").value)=="CONFIANZA"){puntos++;}
+
+if(limpiar(document.getElementById("r5").value)=="NEGOCIACION"){puntos++;}
+
+if(limpiar(document.getElementById("r6").value)=="COERCION"){puntos++;}
+
+if(limpiar(document.getElementById("r7").value)=="ABUSODEPODER"){puntos++;}
+
+if(limpiar(document.getElementById("r8").value)=="DERECHOSSEXUALES"){puntos++;}
+
+if(limpiar(document.getElementById("r9").value)=="EXPRESIONESARTISTICAS"){puntos++;}
+
+if(limpiar(document.getElementById("r10").value)=="CONCIENCIASOCIAL"){puntos++;}
+
+let mensaje="";
+
+if(puntos==10){
+
+mensaje="🎉 ¡FELICIDADES! OBTUVISTE 10 DE 10.";
+
+}else if(puntos>=7){
+
+mensaje="👏 MUY BIEN. OBTUVISTE "+puntos+" DE 10.";
+
+}else if(puntos>=5){
+
+mensaje="🙂 BUEN TRABAJO. OBTUVISTE "+puntos+" DE 10.";
+
+}else{
+
+mensaje="📚 OBTUVISTE "+puntos+" DE 10. SIGUE PRACTICANDO.";
+
+}
+
+document.getElementById("resultado").innerHTML=mensaje;
+
+}
+
+</script>
+
+</body>
+</html> 
